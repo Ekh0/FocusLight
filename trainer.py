@@ -36,7 +36,7 @@ def allToCsv(jsName,csvName):
         array.append(feature)
     df = pd.DataFrame(np.array(array))
     df.to_csv(csvName)
-
+    return True
 #evaluate a ML model with accuracy 
 def evaluateModel(data,label,model):
     start = datetime.now()
@@ -130,5 +130,8 @@ if __name__ == '__main__':
     #findParam()
 
     #fit the model incrementally with new data
-    trainNew()
+    try:
+        trainNew()
+    except FileNotFoundError:
+        print("No new data")
 
