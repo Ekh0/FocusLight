@@ -186,7 +186,10 @@ def getApps(line):
         l = []
         l.append(w['data']['app'])
         l.append(w['data']['title'])
-        l.append("{0:.2f}".format(float(w['duration'])/totalTime))
+        if(totalTime != 0):
+            l.append("{0:.2f}".format(float(w['duration'])/totalTime))
+        else:
+            l.append("{0:.2f}".format(0))
         apps.append(l)
     return apps
 
